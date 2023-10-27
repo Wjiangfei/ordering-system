@@ -23,7 +23,11 @@ const meals=useMealStore();
             </div>
 
             <!-- 已选内容 -->
+            
             <div class="cont">
+                <template v-if="meals.getSum==0">
+                    <div class="noresult" >还未添加商品到购物车哦！</div>
+                </template>
                 <meal v-for="meal in meals.getChosed" :item="meal">
                     <message2 :item="meal"></message2>
                 </meal>
@@ -75,9 +79,17 @@ const meals=useMealStore();
     color:rgb(151, 151, 151);
 
 }
+.noresult{
+    /* background-color: aqua; */
+    height: 60rem;
+    width:300rem;
+    font-size: 15rem;
+    padding:30rem 20rem;
+    color:gray;
+}
 .cont{
     height:700rem;
-    overflow: scroll;
+    overflow: auto;
     padding-bottom: 80rem;
 }
 </style>

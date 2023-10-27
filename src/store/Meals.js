@@ -96,12 +96,13 @@ export const useMealStore=defineStore("meals",{
         // 增加个数
         increse(id){
             this.mount[id]++;
-            // console.log(id,this.mount[id]);
+            console.log(id,this.mount[id]);
         },
         // 减少个数
         decre(id){
             this.mount[id]--;
-            // console.log(id,this.mount[id]);
+            if(this.getSum==0)this.ifpay=false;
+            console.log(id,this.mount[id]);
         },
         // 切换购物袋显示状态
         checkToggle(){
@@ -110,7 +111,10 @@ export const useMealStore=defineStore("meals",{
         },
         // 前往已支付页面
         topay(){
-            this.ifpay=true;
+            if(this.getSum>0){
+                this.ifpay=true;
+            }
+            
             console.log("ifpay",this.ifpay);
         },
         cancelpay(){
@@ -119,7 +123,7 @@ export const useMealStore=defineStore("meals",{
         },
         // 清空
         toEmpty(){
-            this.mount=[0,0,0,0,0,0,0];
+            this.mount=[0,0,0,0,0,0,0,0];
         }
     }
 })
