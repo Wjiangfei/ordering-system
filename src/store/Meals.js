@@ -51,9 +51,16 @@ export const useMealStore=defineStore("meals",{
                 desc: "百分百纯牛肉与香软芝士融为一体配合美味番茄醬丰富口感一咬即刻涌现！",
                 price: 12,
                 img: "/images/meals/7.png"
+            },
+            {
+                id: "8",
+                title: "双层深海鳕鱼堡",
+                desc: "百分百纯牛肉与香软芝士融为一体配合美味番茄醬丰富口感一咬即刻涌现！",
+                price: 30,
+                img: "/images/meals/7.png"
             }
         ],
-        mount:[0,0,0,0,0,0,0],
+        mount:[0,0,0,0,0,0,0,0],
         keyword:"",
         ifcheck:false,
         ifpay:false
@@ -102,8 +109,12 @@ export const useMealStore=defineStore("meals",{
             console.log("ifcheck",this.ifcheck);
         },
         // 前往已支付页面
-        payToggle(){
-            this.ifpay=!this.ifpay;
+        topay(){
+            this.ifpay=true;
+            console.log("ifpay",this.ifpay);
+        },
+        cancelpay(){
+            this.ifpay=false;
             console.log("ifpay",this.ifpay);
         },
         // 清空

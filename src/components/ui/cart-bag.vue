@@ -22,7 +22,7 @@ const meals=useMealStore();
         
         <div class="sumOfPrice">{{ meals.priceSum }}</div>
         
-        <div @click="meals.payToggle" class="toPay">{{ meals.ifpay?"去支付":"去结算" }}</div>
+        <div @click="meals.topay" class="toPay">{{ meals.ifpay?"去支付":"去结算" }}</div>
         
         
     </div>

@@ -1,8 +1,10 @@
 <script setup>
 import { defineProps } from 'vue';
 import changeNumber from '../meals/change-number.vue';
+import { useMealStore } from '../../store/Meals';
 
 const props=defineProps(["item"]);
+const meals=useMealStore();
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const props=defineProps(["item"]);
         <!-- 价格和数量 -->
         <div class="des">
             <changeNumber class="change" :id="props.item.id"></changeNumber>
-            <div class="price">{{ props.item.price }}</div>
+            <div class="price">{{ props.item.price * meals.mount[props.item.id-1]}}</div>
         </div>
         
     </div>
@@ -25,10 +27,9 @@ const props=defineProps(["item"]);
 
 <style scoped>
 .meal{
-    height:80rem;
-    width:340rem;
+    height:90rem;
+    width:330rem;
     overflow: hidden;
-    /* background-color: aqua; */
 }
 .pic{
     float: left;
@@ -43,7 +44,7 @@ img{
 .title{
     position:relative;
     font-size:15rem;
-    margin-top:25rem;
+    margin-top:15rem;
     padding-left:95rem;
     font-weight: bold;
 
@@ -58,11 +59,11 @@ img{
     height:20rem;
     width:50rem;
     font-weight:bold;
-    font-size:18rem;
+    font-size:15rem;
 }
 .price::before{
     content:"￥";
-    font-size: 13rem;
+    font-size: 15rem;
 }
 
 

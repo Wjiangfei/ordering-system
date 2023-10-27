@@ -53,6 +53,7 @@ h1{
 }
 .pricetag{
     position:relative;
+    top:25rem;
     display: flex;
     justify-content: space-between;
  }
