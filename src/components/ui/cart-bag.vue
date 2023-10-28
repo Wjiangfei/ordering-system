@@ -20,9 +20,10 @@ const meals=useMealStore();
         <!-- 当结算页面时，购物袋不显示，替换为合计字样 -->
         <div class="paynum" v-show="meals.ifpay">合计</div>
         
-        <div class="sumOfPrice">{{ meals.priceSum }}</div>
-        
-        <div @click="meals.topay" class="toPay">{{ meals.ifpay?"去支付":"去结算" }}</div>
+        <div v-if="meals.priceSum>0" class="sumOfPrice">{{ meals.priceSum }}</div>
+        <div v-else="meals.priceSum==0" class="noprice">未选购商品</div>
+
+        <div @click="meals.topay" :class="{ toPay:meals.priceSum > 0, nopay:meals.priceSum==0 }">{{ meals.ifpay?"去支付":"去结算" }}</div>
         
         
     </div>
@@ -53,15 +54,25 @@ const meals=useMealStore();
     font-size: 15rem;
 }
 .sumOfPrice{
-    position: absolute;
-    left:60rem;
-    top:15rem;
+    
     height: 20rem;
     width:20rem;
     /* background-color: aqua; */
     color: white;
     font-size: 20rem;
     font-weight: bolder;
+}
+.noprice,.sumOfPrice{
+    position: absolute;    
+    left:60rem;
+    top:12rem;
+}
+.noprice{
+    font-size:20rem;
+    color:rgb(161, 161, 161);
+    font-weight: bold;
+    
+
 }
 .bagpng{
     max-width: 100%;
@@ -88,20 +99,27 @@ const meals=useMealStore();
     justify-content: center;
     align-items:center;
 }
-.toPay{
+.toPay,.nopay{
     position:absolute;
     height:50rem;
     width:110rem;
     right:-1rem;
     top:0;
-    background-color: rgb(250,187,2);
     border-radius: 30rem;
     font-size: 20rem;
-    /* font-family: "Lucida Console", Courier, monospace; */
-    /* font-weight: bold; */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
+}
+.toPay{
+    background-color: rgb(250,187,2);
+    color:black;
+}
+.nopay{
+    background-color: rgb(107,107,107);
+    color:rgb(161, 161, 161);
+
 }
 
 </style>
