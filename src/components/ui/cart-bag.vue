@@ -47,6 +47,7 @@ const meals=useMealStore();
     width:350rem;
     background-color: rgb(58,58,58);
     border-radius: 30rem;
+    z-index:3;
 }
 
 .sumOfPrice::before{

@@ -32,8 +32,8 @@ const meals=useMealStore();
 
 <style scoped>
 .pay{
-    height:100vh;
-    width:100vw;
+    height:100%;
+    width:100%;
     background-color: rgb(240, 240, 240);
     /* background-color: radial-gradient(circle at 0 ) */
     position:absolute;
@@ -51,6 +51,7 @@ const meals=useMealStore();
     padding-left:10rem;
     position:fixed;
     background-color: rgb(240, 240, 240,50%);
+    z-index:10;
 }
 .receipt{
     width:380rem;

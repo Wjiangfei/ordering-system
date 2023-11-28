@@ -17,10 +17,10 @@ const meal=useMealStore();
 
 <style scoped>
 .search{
-    width:100vw;
+    width:390rem;
     /* background-color: aqua; */
     height: 50rem;
-    position:fixed;
+    position:absolute;
     top:0;
     left:0;
     display: flex;
@@ -28,7 +28,7 @@ const meal=useMealStore();
     border-bottom:rgb(241, 241, 241) 0.5rem solid;
 }
 .inpsear{
-    width:90vw;
+    width:350rem;
     height:35rem;
     border-radius: 15rem;
     border: none;
@@ -38,7 +38,7 @@ const meal=useMealStore();
     color:gray;
 }
 .logo{
-    position:fixed;
+    position:absolute;
     top:16rem;
     left:30rem;
     font-size: 18rem;
